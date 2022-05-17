@@ -23,6 +23,11 @@ class Player(Actor):
         """accessor to remove an item from the inventory"""
         self._inventory.remove(item)
 
+    def check(self):
+        print("in ", self.name, " inventory is:")
+        for item in self._inventory:
+            print(item, end=", ")
+
     def control(self):
         command = input("what is your move?:")
         if command in self.keymap:
@@ -38,4 +43,10 @@ class Player(Actor):
                 print("attacking")
         if command == "quit":
             print("there is no escape")
+        if "pickup" in command:
+            self.pickUp(command.replace("pickup ",""))
+        if "drop" in command:
+            self.drop(command.replace("drop",""))
+        if command == "check":
+            self.check()
 

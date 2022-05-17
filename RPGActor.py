@@ -10,6 +10,8 @@ class Actor():
         self.armour = 0
         self.speed = 1
         self.status = []
+        self.positionx = 0
+        self.positiony = 0
 
     def __repr__(self) -> str:
         return("Actor: " + self.name)

@@ -14,6 +14,7 @@ class Player(Actor):
             "d":"right",
             " ":"attack"}
         self._inventory = []
+        self.health = 200
     
     def pickUp(self, item):
         """accessor to add an item to inventory"""
@@ -33,14 +34,19 @@ class Player(Actor):
         if command in self.keymap:
             if self.keymap[command] == "up":
                 print("moving up")
+                self.positiony += 1
             if self.keymap[command] == "down":
                 print("moving down")
+                self.positiony -= 1
             if self.keymap[command] == "left":
                 print("moving left")
+                self.positionx -= 1
             if self.keymap[command] == "right":
                 print("moving right")
+                self.positionx += 1
             if self.keymap[command] == "attack":
-                print("attacking")
+                #attack automatically finds closest enemy and attacks
+                pass
         if command == "quit":
             print("there is no escape")
         if "pickup" in command:

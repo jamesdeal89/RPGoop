@@ -12,7 +12,9 @@ class Game():
 
     def spawnEnemy(self):
         self.moveNum = 0
-        enemy = Enemy(name=self.enemyList[random.randint(0,len(self.enemyList)-1)])
+        enemyName = self.enemyList[random.randint(0,len(self.enemyList)-1)]
+        # found online that using the following will let you use the value of a variable as the instance name
+        locals()[enemyName] = Enemy(name=enemyName)
 
 
     def playerInput(self):

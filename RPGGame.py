@@ -2,6 +2,7 @@
 import random
 from RPGPlayer import Player
 from RPGEnemy import Enemy
+from RPGRoom import Room
 
 class Game():
     def __init__(self) -> None:

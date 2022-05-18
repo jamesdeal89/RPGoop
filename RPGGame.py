@@ -2,6 +2,8 @@
 import random
 from RPGPlayer import Player
 from RPGEnemy import Enemy
+from RPGWorld import World
+from RPGLevel import Level
 from RPGRoom import Room
 
 class Game():
@@ -16,6 +18,8 @@ class Game():
         enemyName = self.enemyList[random.randint(0,len(self.enemyList)-1)]
         # found online that using the following will let you use the value of a variable as the instance name
         locals()[enemyName] = Enemy(name=enemyName)
+        room.addToRoom(locals()[enemyName])
+        print(room.enemyList)
 
 
     def playerInput(self):
@@ -31,6 +35,11 @@ class Game():
 
 if __name__ == "__main__":
     game = Game()
+    world = World()
+    level = Level()
+    room = Room()
+    world.addLevel(level)
+    level.addRoom(room)
     print("generating the world...")
     game.play()
     # initialize game world

@@ -1,10 +1,19 @@
 # RPG game
+import random
 from RPGPlayer import Player
+from RPGEnemy import Enemy
 
 class Game():
     def __init__(self) -> None:
         self.player = Player()
         self.running = True
+        self.moveNum = 0
+        self.enemyList = ["Gnobby", "Bobby", "Tubby", "Flubby", "Creep"]
+
+    def spawnEnemy(self):
+        self.moveNum = 0
+        enemy = Enemy(name=self.enemyList[random.randint(0,len(self.enemyList)-1)])
+
 
     def playerInput(self):
         self.player.control()
@@ -12,6 +21,9 @@ class Game():
     def play(self):
         while self.running:
             self.playerInput()
+            self.moveNum += 1
+            if self.moveNum > random.randint(3,8):
+                self.spawnEnemy()
 
 
 if __name__ == "__main__":

@@ -45,7 +45,7 @@ class Player(Actor):
                 print("moving right")
                 self.positionx += 1
             if self.keymap[command] == "attack":
-                #attack automatically finds closest enemy and attacks
+                # possible idea: attack automatically finds closest enemy and attacks
                 pass
         if command == "quit":
             print("there is no escape")

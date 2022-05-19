@@ -11,16 +11,16 @@ class Game():
         self.player = Player()
         self.running = True
         self.moveNum = 0
-        self.enemyList = ["Gnobby", "Bobby", "Tubby", "Flubby", "Creep"]
+        self.enemyList = ["Gnobby", "Bobby", "Tubby", "Flubby", "Creepy"]
 
     def spawnEnemy(self):
         self.moveNum = 0
         enemyName = self.enemyList[random.randint(0,len(self.enemyList)-1)]
-        # found online that using the following will let you use the value of a variable as the instance name
+        # found online that using the following will let you use the value of
+        # a variable as the instance name
         locals()[enemyName] = Enemy(name=enemyName)
         room.addToRoom(locals()[enemyName])
         print(room.enemyList)
-
 
     def playerInput(self):
         self.player.control()
